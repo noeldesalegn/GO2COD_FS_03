@@ -2,15 +2,15 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Chat\CreateChat as ChatCreateChat;
-use App\Livewire\Chat\Main as ChatMain;
+use App\Livewire\Chat\Main as Main;
 
 Route::view('/', 'welcome');
 
 //livewire routes
 
-Route::get('/users',ChatCreateChat::class)->name('chat.create');
+Route::get('/users',ChatCreateChat::class)->name('users');
 
-Route::get('/chat',ChatMain::class)->name('chat.main');
+Route::get('/chat{key?}',Main::class)->name('chat');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
