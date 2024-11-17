@@ -1,11 +1,10 @@
 <div>
     {{-- Stop trying to control. --}}
-    <x-slot name="header">
+    {{-- <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('Chat') }}
         </h2>
-    </x-slot>
-    <div class="test">test</div>
+    </x-slot> --}}
     <div class="chat_container">
 
         <div class="chat_list_container">
