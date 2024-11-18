@@ -10,7 +10,7 @@ Route::view('/', 'welcome');
 
 Route::get('/users',ChatCreateChat::class)->name('users');
 
-Route::get('/chat{key?}',Main::class)->name('chat');
+Route::get('/chat{key?}',Main::class)->middleware('auth')->name('chat');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

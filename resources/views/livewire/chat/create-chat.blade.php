@@ -1,8 +1,15 @@
 <div>
     {{-- In work, do what you enjoy. --}}
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Users') }}
-        </h2>
-    </x-slot>
+    {{-- <ul class="list-group w-75 mx-auto mt-3 container-fluid" style="height: 1000px">
+            <li class="list-group-item list-group-item-action">sdivu DILSGV Sdiu</li>
+         </ul> --}}
+         <ul class="list-group w-75 mx-auto mt-3 container-fluid" style="height: 1000px">
+            @foreach ($users as $user)
+
+
+                <li class="list-group-item list-group-item-action mt-2" wire:click='checkconversation({{$user->id}})'> {{$user->name}}</li>
+
+
+            @endforeach
+             </ul>
 </div>
