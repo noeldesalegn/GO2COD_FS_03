@@ -2,19 +2,38 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Message extends Model
 {
-    protected $guarded = [];
-    //related to conversation
+    use HasFactory;
+
+    protected $fillable=[
+        'body',
+        'sender_id',
+        'receiver_id',
+        'conversation_id',
+        'read_at',
+        'receiver_deleted_at',
+        'sender_deleted_at',
+    ];
+
+
+    protected $dates=['read_at','receiver_deleted_at','sender_deleted_at'];
+
+
+    /* relationship */
+
     public function conversation()
     {
         return $this->belongsTo(Conversation::class);
     }
-    //related to user
-    public function user()
+
+
+    public function isRead():bool
     {
-        return $this->belongsTo(User::class);
+
+         return $this->read_at != null;
     }
 }
